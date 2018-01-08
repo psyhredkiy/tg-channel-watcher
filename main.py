@@ -3,7 +3,7 @@
 import configparser
 import re
 
-from telethon import *
+from telethon import TelegramClient
 from telethon.tl.functions.channels import (JoinChannelRequest,
                                             ReadHistoryRequest)
 from telethon.tl.functions.messages import ForwardMessagesRequest
@@ -17,8 +17,7 @@ api_id = settings.getint('api_id')
 api_hash = settings.get('api_hash')
 session_name = settings.get('session_name')
 channel_names = [s.strip() for s in settings.get('channel_names').split(',')]
-message_filters = [s.strip()
-                   for s in settings.get('message_filters').split(',')]
+patterns = [s.strip() for s in settings.get('patterns').split(',')]
 forward_to = settings.get('forward_to')
 
 client = TelegramClient(session_name, api_id, api_hash,
@@ -38,16 +37,18 @@ for channel in channel_names:
 
 
 def callback(update):
-    """Callback method for received Updates"""
-    print('I received', update)
-    if (isinstance(update, UpdateNewChannelMessage)
-            or isinstance(update, UpdateEditChannelMessage)):
+    """Callback function for received Updates"""
+    # print('I received', update)
+    if (isinstance(update, (UpdateNewChannelMessage,
+                            UpdateEditChannelMessage))):
         msg = update.message
         channel = client.get_entity(msg.to_id)
         if channel.username.lower() in channel_names:
-            for pattern in message_filters:
+            for pattern in patterns:
                 if (re.match(pattern, msg.message, re.I | re.S)
                         is not None):
+                    print('Forwarded message from', channel.username,
+                          'to', forward_to)
                     client(ForwardMessagesRequest(
                         from_peer=channel,
                         id=[msg.id],
