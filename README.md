@@ -1,8 +1,8 @@
 # tg-channel-watcher
 
 > A simple Python 3 script that checks all the messages sent in a given list
-of Telegram channels/supergroups and forwards (to yourself or to someone else)
-the ones matching a specified set of patterns.
+of Telegram channels and forwards (to yourself or to someone else) the ones
+matching a specified set of patterns.
 
 After you have cloned the repository, run the command
 `pip install -r requirements.txt` to install all the required dependencies.
