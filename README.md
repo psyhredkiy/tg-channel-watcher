@@ -1,4 +1,9 @@
 # tg-channel-watcher
+[![telethon version](https://img.shields.io/badge/telethon-v0.16.1.1-blue.svg)](https://github.com/LonamiWebs/Telethon)
+[![license](https://img.shields.io/github/license/xates/tg-channel-watcher.svg)](LICENSE)
+[![last commit](https://img.shields.io/github/last-commit/google/skia.svg)](https://github.com/xates/tg-channel-watcher/commits/master)
+
+## Introduction
 
 This project is the combination of two Python3 scripts that I originally
 wrote for myself and then I decided to make public so that everyone could
@@ -14,6 +19,8 @@ specified set of patterns,
 
 - **downloader**: downloads all the media (images and/or documents) sent in
 a given list of Telegram channels.
+
+## Getting started
 
 After you have cloned the repository, run the command
 `pip install -r requirements.txt` to install all the required dependencies.
