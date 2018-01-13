@@ -5,6 +5,10 @@
 # Session files
 *.session
 
+# Temporary test files
+test.py
+temp.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

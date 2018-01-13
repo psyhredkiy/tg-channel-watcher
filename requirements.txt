@@ -1,4 +1,4 @@
 pyaes==1.6.1
 pyasn1==0.4.2
 rsa==3.4.2
-Telethon==0.15.5.7
+Telethon==0.16.1.1
