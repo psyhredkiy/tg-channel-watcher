@@ -4,7 +4,6 @@ import logging
 import re
 import sys
 from configparser import ConfigParser, NoOptionError, NoSectionError
-from time import sleep
 
 from telethon import TelegramClient, utils
 from telethon.errors import InviteHashInvalidError, UsernameNotOccupiedError
@@ -51,10 +50,8 @@ except NoOptionError as e:
 except ValueError:
     sys.exit('ERROR: option "api_id" must have an integer value.')
 
-# TODO: spawn_read_thread=False doesn't work in Telethon v0.16.1.1
-# https://github.com/LonamiWebs/Telethon/issues/538
 client = TelegramClient(session_name, api_id, api_hash,
-                        update_workers=4, spawn_read_thread=True)
+                        update_workers=4, spawn_read_thread=False)
 client.connect()
 client.start(phone)
 
@@ -193,8 +190,5 @@ def callback(update):
 
 logging.info('Listening for new messages...')
 client.add_update_handler(callback)
-# TODO: client.idle() doesn't work in Telethon v0.16.1.1
-# https://github.com/LonamiWebs/Telethon/issues/538
-while True:
-    sleep(1)
+client.idle()
 client.disconnect()

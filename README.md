@@ -1,5 +1,5 @@
 # tg-channel-watcher
-[![telethon version](https://img.shields.io/badge/telethon-v0.16.1.1-blue.svg)](https://github.com/LonamiWebs/Telethon)
+[![telethon version](https://img.shields.io/badge/telethon-v0.16.1.2-blue.svg)](https://github.com/LonamiWebs/Telethon)
 [![license](https://img.shields.io/github/license/xates/tg-channel-watcher.svg)](LICENSE)
 [![last commit](https://img.shields.io/github/last-commit/google/skia.svg)](https://github.com/xates/tg-channel-watcher/commits/master)
 
